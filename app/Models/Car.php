@@ -33,4 +33,10 @@ class Car extends Model
     {
         return $this->hasMany(Trip::class);
     }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('car_owner_id', tenant()->id);
+    }
+
 }

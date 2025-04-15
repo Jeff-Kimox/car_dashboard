@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('car_owners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('contact')->nullable();
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('car_id')->constrained()->onDelete('cascade');
             $table->string('from_location');
             $table->string('to_location');
+            $table->string('status')->nullable();
             $table->timestamp('started_at')->nullable();
             $table->timestamp('ended_at')->nullable();
             $table->string('accident_photo')->nullable();

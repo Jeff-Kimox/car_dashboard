@@ -21,6 +21,13 @@ class CarOwnerResource extends Resource
 
     protected static ?string $navigationGroup = 'Car Management';
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->where('car_owner_id', app('currentTenant')->id);
+    }
+
+
     public static function form(Form $form): Form
     {
         return $form

@@ -33,8 +33,8 @@ class TripResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('from_location')->required(),
                 Forms\Components\TextInput::make('to_location')->required(),
-                Forms\Components\DateTimePicker::make('trip_start_time')->required(),
-                Forms\Components\DateTimePicker::make('trip_end_time'),
+                Forms\Components\DateTimePicker::make('started_at')->required(),
+                Forms\Components\DateTimePicker::make('ended_at')->nullable(),
                 Forms\Components\FileUpload::make('photo')->image()->nullable(),
             ]);
     }
@@ -45,10 +45,11 @@ class TripResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('driver.name')->label('Driver')->sortable(),
                 Tables\Columns\TextColumn::make('car.plate_number')->label('Car')->sortable(),
-                Tables\Columns\TextColumn::make('start_location'),
-                Tables\Columns\TextColumn::make('end_location'),
-                Tables\Columns\TextColumn::make('trip_start_time')->dateTime(),
-                Tables\Columns\TextColumn::make('trip_end_time')->dateTime(),
+                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('from_location'),
+                Tables\Columns\TextColumn::make('to_location'),
+                Tables\Columns\TextColumn::make('started_at')->dateTime(),
+                Tables\Columns\TextColumn::make('ended_at')->dateTime(),
                 Tables\Columns\ImageColumn::make('photo'),
             ])
             ->filters([
